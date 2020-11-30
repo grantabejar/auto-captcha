@@ -62,7 +62,7 @@ cat > no.sh << EOF
 
 EOF
 cat > yes.sh << EOF
-(cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &)
+(service httpd stop $) && (cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &) && (service httpd start $)
 
 EOF
 
@@ -141,7 +141,7 @@ cat > no.sh << EOF
 
 EOF
 cat > yes.sh << EOF
-(cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &)
+(service httpd stop $) && (cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &) && (service httpd start $)
 
 EOF
 
