@@ -65,7 +65,7 @@ if [ \$? -eq 0 ]
 then
 exit
 else
-vddos-switch allsite captcha
+cd ~ && vddos-switch allsite captcha
 fi
 EOF
 cat > deactivate.sh << EOF
@@ -75,7 +75,7 @@ cat /proc/loadavg | colrm 6 > \$loadavg
 grep -w "[0.00-20.00]" \$loadavg > /dev/null
 if [ \$? -eq 0 ]
 then
-vddos-switch allsite no
+cd ~ && vddos-switch allsite no
 else
 exit
 fi
@@ -150,7 +150,7 @@ if [ \$? -eq 0 ]
 then
 exit
 else
-vddos-switch allsite captcha
+cd ~ && vddos-switch allsite captcha
 fi
 EOF
 cat > deactivate.sh << EOF
@@ -160,7 +160,7 @@ cat /proc/loadavg | colrm 6 > \$loadavg
 grep -w "[0.00-20.00]" \$loadavg > /dev/null
 if [ \$? -eq 0 ]
 then
-vddos-switch allsite no
+cd ~ && vddos-switch allsite no
 else
 exit
 fi
