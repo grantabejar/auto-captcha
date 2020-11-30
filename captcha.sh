@@ -58,11 +58,11 @@ exit
 fi
 EOF
 cat > no.sh << EOF
-(cd ~ &) && (vddos-switch allsite no &)
+(cd ~ &) && (vddos-switch allsite no &) && (vddos restart &)
 
 EOF
 cat > yes.sh << EOF
-(cd ~ &) && (vddos-switch allsite captcha &)
+(cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &)
 
 EOF
 
@@ -137,11 +137,11 @@ exit
 fi
 EOF
 cat > no.sh << EOF
-(cd ~ &) && (vddos-switch allsite no &)
+(cd ~ &) && (vddos-switch allsite no &) && (vddos restart &)
 
 EOF
 cat > yes.sh << EOF
-(cd ~ &) && (vddos-switch allsite captcha &)
+(cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &)
 
 EOF
 
