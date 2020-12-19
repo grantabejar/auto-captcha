@@ -7,11 +7,11 @@ EOF
 printf "\033[1;34mWelcome to the Auto-captcha.\r\nVersion 1.0\033[0m"
 printf "\r\n\r\n"
 
-if [ -d "/root/cap/" ]; then
+if [ -d "/home/cap/" ]; then
   printf "\033[1;31mDetected previous installation of cap.\r\n"
   sleep .5
   printf "Removing it...\r\n\033[0m"
-  rm -rf /root/cap
+  rm -rf /home/cap
 fi
 
 sleep .5
@@ -31,8 +31,8 @@ if [[ -e /etc/debian_version ]]; then
 	printf "\033c"
 	printf "\033[1;32mBuilding files.\r\n\033[0m"
 	sleep 1
-	mkdir /root/cap
-	cd /root/cap
+	mkdir /home/cap
+	cd /home/cap
 cat > activate.sh << EOF
 #!/bin/bash
 loadavg=load.avg
