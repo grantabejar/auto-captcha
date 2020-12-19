@@ -37,7 +37,7 @@ cat > activate.sh << EOF
 #!/bin/bash
 loadavg=load.avg
 cat /proc/loadavg | colrm 6 > \$loadavg
-grep -w "[0.00-70.00]" \$loadavg > /dev/null
+grep -w "[0.00-80.00]" \$loadavg > /dev/null
 if [ \$? -eq 0 ]
 then
 exit
@@ -58,11 +58,11 @@ exit
 fi
 EOF
 cat > no.sh << EOF
-(cd ~ &) && (vddos-switch allsite no &) && (vddos restart &)
+(cd ~ &) && (vddos-switch allsite no &) && (vddos reload &)
 
 EOF
 cat > yes.sh << EOF
-(service httpd stop $) && (cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &) && (service httpd start $)
+(cd ~ &) && (vddos-switch allsite captcha &) && (vddos reload &)
 
 EOF
 
@@ -78,19 +78,19 @@ EOF
 	crontab cron1
 	rm cron1
 	crontab -l > cron2
-	echo "* * * * * cd /home/cap/ ; sleep 15 ; bash activate.sh" >> cron2
+	echo "* * * * * cd /home/cap/ ; sleep 5 ; bash activate.sh" >> cron2
 	crontab cron2
 	rm cron2
 	crontab -l > cron3
-	echo "* * * * * cd /home/cap/ ; sleep 30 ; bash activate.sh" >> cron3
+	echo "* * * * * cd /home/cap/ ; sleep 10 ; bash activate.sh" >> cron3
 	crontab cron3
 	rm cron3
 	crontab -l > cron4
-	echo "* * * * * cd /home/cap/ ; sleep 45 ; bash activate.sh" >> cron4
+	echo "* * * * * cd /home/cap/ ; sleep 30 ; bash activate.sh" >> cron4
 	crontab cron4
 	rm cron4
 	crontab -l > cron5
-	echo "10,30 * * * * cd /home/cap/ ; bash deactivate.sh" >> cron5
+	echo "0 */3 * * * cd /root/cap/ && bash deactivate.sh" >> cron5
 	crontab cron5
 	rm cron5
 	service cron restart
@@ -116,7 +116,7 @@ cat > activate.sh << EOF
 #!/bin/bash
 loadavg=load.avg
 cat /proc/loadavg | colrm 6 > \$loadavg
-grep -w "[0.00-70.00]" \$loadavg > /dev/null
+grep -w "[0.00-80.00]" \$loadavg > /dev/null
 if [ \$? -eq 0 ]
 then
 exit
@@ -137,11 +137,11 @@ exit
 fi
 EOF
 cat > no.sh << EOF
-(cd ~ &) && (vddos-switch allsite no &) && (vddos restart &)
+(cd ~ &) && (vddos-switch allsite no &) && (vddos reload &)
 
 EOF
 cat > yes.sh << EOF
-(service httpd stop $) && (cd ~ &) && (vddos-switch allsite captcha &) && (vddos restart &) && (service httpd start $)
+(cd ~ &) && (vddos-switch allsite captcha &) && (vddos reload &)
 
 EOF
 
@@ -157,19 +157,19 @@ EOF
 	crontab cron1
 	rm cron1
 	crontab -l > cron2
-	echo "* * * * * cd /home/cap/ ; sleep 15 ; bash activate.sh" >> cron2
+	echo "* * * * * cd /home/cap/ ; sleep 5 ; bash activate.sh" >> cron2
 	crontab cron2
 	rm cron2
 	crontab -l > cron3
-	echo "* * * * * cd /home/cap/ ; sleep 30 ; bash activate.sh" >> cron3
+	echo "* * * * * cd /home/cap/ ; sleep 10 ; bash activate.sh" >> cron3
 	crontab cron3
 	rm cron3
 	crontab -l > cron4
-	echo "* * * * * cd /home/cap/ ; sleep 45 ; bash activate.sh" >> cron4
+	echo "* * * * * cd /home/cap/ ; sleep 15 ; bash activate.sh" >> cron4
 	crontab cron4
 	rm cron4
 	crontab -l > cron5
-	echo "10,30 * * * * cd /home/cap/ ; bash deactivate.sh" >> cron5
+	echo "0 */3 * * * cd /root/cap/ && bash deactivate.sh" >> cron5
 	crontab cron5
 	rm cron5
 	service crond restart
