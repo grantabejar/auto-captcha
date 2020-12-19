@@ -66,31 +66,31 @@ cat > yes.sh << EOF
 
 EOF
 
-	touch /root/cap/load.avg
-	chmod 500 /root/cap/
-	chmod 500 /root/cap/activate.sh
-	chmod 500 /root/cap/deactivate.sh
-	chmod 500 /root/cap/no.sh
-	chmod 500 /root/cap/yes.sh
-	chmod 600 /root/cap/load.avg
+	touch /home/cap/load.avg
+	chmod 500 /home/cap/
+	chmod 500 /home/cap/activate.sh
+	chmod 500 /home/cap/deactivate.sh
+	chmod 500 /home/cap/no.sh
+	chmod 500 /home/cap/yes.sh
+	chmod 600 /home/cap/load.avg
 	crontab -l > cron1
-	echo "* * * * * cd /root/cap/ ; bash activate.sh" >> cron1
+	echo "* * * * * cd /home/cap/ ; bash activate.sh" >> cron1
 	crontab cron1
 	rm cron1
 	crontab -l > cron2
-	echo "* * * * * cd /root/cap/ ; sleep 15 ; bash activate.sh" >> cron2
+	echo "* * * * * cd /home/cap/ ; sleep 15 ; bash activate.sh" >> cron2
 	crontab cron2
 	rm cron2
 	crontab -l > cron3
-	echo "* * * * * cd /root/cap/ ; sleep 30 ; bash activate.sh" >> cron3
+	echo "* * * * * cd /home/cap/ ; sleep 30 ; bash activate.sh" >> cron3
 	crontab cron3
 	rm cron3
 	crontab -l > cron4
-	echo "* * * * * cd /root/cap/ ; sleep 45 ; bash activate.sh" >> cron4
+	echo "* * * * * cd /home/cap/ ; sleep 45 ; bash activate.sh" >> cron4
 	crontab cron4
 	rm cron4
 	crontab -l > cron5
-	echo "10,30 * * * * cd /root/cap/ ; bash deactivate.sh" >> cron5
+	echo "10,30 * * * * cd /home/cap/ ; bash deactivate.sh" >> cron5
 	crontab cron5
 	rm cron5
 	service cron restart
@@ -110,8 +110,8 @@ elif [[ -e /etc/centos-release ]]; then
 	printf "\033c"
 	printf "\033[1;32mBuilding files.\r\n\033[0m"
 	sleep 1
-	mkdir /root/cap
-	cd /root/cap
+	mkdir /home/cap
+	cd /home/cap
 cat > activate.sh << EOF
 #!/bin/bash
 loadavg=load.avg
@@ -145,31 +145,31 @@ cat > yes.sh << EOF
 
 EOF
 
-	touch /root/cap/load.avg
-	chmod 500 /root/cap/
-	chmod 500 /root/cap/activate.sh
-	chmod 500 /root/cap/deactivate.sh
-	chmod 500 /root/cap/no.sh
-	chmod 500 /root/cap/yes.sh
-	chmod 600 /root/cap/load.avg
+	touch /home/cap/load.avg
+	chmod 500 /home/cap/
+	chmod 500 /home/cap/activate.sh
+	chmod 500 /home/cap/deactivate.sh
+	chmod 500 /home/cap/no.sh
+	chmod 500 /home/cap/yes.sh
+	chmod 600 /home/cap/load.avg
 	crontab -l > cron1
-	echo "* * * * * cd /root/cap/ ; bash activate.sh" >> cron1
+	echo "* * * * * cd /home/cap/ ; bash activate.sh" >> cron1
 	crontab cron1
 	rm cron1
 	crontab -l > cron2
-	echo "* * * * * cd /root/cap/ ; sleep 15 ; bash activate.sh" >> cron2
+	echo "* * * * * cd /home/cap/ ; sleep 15 ; bash activate.sh" >> cron2
 	crontab cron2
 	rm cron2
 	crontab -l > cron3
-	echo "* * * * * cd /root/cap/ ; sleep 30 ; bash activate.sh" >> cron3
+	echo "* * * * * cd /home/cap/ ; sleep 30 ; bash activate.sh" >> cron3
 	crontab cron3
 	rm cron3
 	crontab -l > cron4
-	echo "* * * * * cd /root/cap/ ; sleep 45 ; bash activate.sh" >> cron4
+	echo "* * * * * cd /home/cap/ ; sleep 45 ; bash activate.sh" >> cron4
 	crontab cron4
 	rm cron4
 	crontab -l > cron5
-	echo "10,30 * * * * cd /root/cap/ ; bash deactivate.sh" >> cron5
+	echo "10,30 * * * * cd /home/cap/ ; bash deactivate.sh" >> cron5
 	crontab cron5
 	rm cron5
 	service crond restart
