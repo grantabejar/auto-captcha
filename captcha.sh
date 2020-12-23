@@ -78,19 +78,19 @@ EOF
 	crontab cron1
 	rm cron1
 	crontab -l > cron2
-	echo "* * * * * cd /home/cap/ ; sleep 5 ; bash activate.sh" >> cron2
+	echo "* * * * * cd /home/cap/ ; sleep 1 ; bash activate.sh" >> cron2
 	crontab cron2
 	rm cron2
 	crontab -l > cron3
-	echo "* * * * * cd /home/cap/ ; sleep 10 ; bash activate.sh" >> cron3
+	echo "* * * * * cd /home/cap/ ; sleep 3 ; bash activate.sh" >> cron3
 	crontab cron3
 	rm cron3
 	crontab -l > cron4
-	echo "* * * * * cd /home/cap/ ; sleep 30 ; bash activate.sh" >> cron4
+	echo "* * * * * cd /home/cap/ ; sleep 5 ; bash activate.sh" >> cron4
 	crontab cron4
 	rm cron4
 	crontab -l > cron5
-	echo "0 */3 * * * cd /root/cap/ && bash deactivate.sh" >> cron5
+	echo "0 * * * * cd /root/cap/ && bash deactivate.sh" >> cron5
 	crontab cron5
 	rm cron5
 	service cron restart
@@ -157,19 +157,19 @@ EOF
 	crontab cron1
 	rm cron1
 	crontab -l > cron2
-	echo "* * * * * cd /home/cap/ ; sleep 5 ; bash activate.sh" >> cron2
+	echo "* * * * * cd /home/cap/ ; sleep 1 ; bash activate.sh" >> cron2
 	crontab cron2
 	rm cron2
 	crontab -l > cron3
-	echo "* * * * * cd /home/cap/ ; sleep 10 ; bash activate.sh" >> cron3
+	echo "* * * * * cd /home/cap/ ; sleep 3 ; bash activate.sh" >> cron3
 	crontab cron3
 	rm cron3
 	crontab -l > cron4
-	echo "* * * * * cd /home/cap/ ; sleep 15 ; bash activate.sh" >> cron4
+	echo "* * * * * cd /home/cap/ ; sleep 5 ; bash activate.sh" >> cron4
 	crontab cron4
 	rm cron4
 	crontab -l > cron5
-	echo "0 */3 * * * cd /root/cap/ && bash deactivate.sh" >> cron5
+	echo "0 * * * * cd /root/cap/ && bash deactivate.sh" >> cron5
 	crontab cron5
 	rm cron5
 	service crond restart
